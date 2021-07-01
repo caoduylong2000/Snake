@@ -82,10 +82,21 @@ public class Snake : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Food")) {
+        if (other.gameObject.CompareTag("Food"))
+        {
             Grow();
-        } else if (other.gameObject.CompareTag("Obstacle")) {
-            ResetState();
+        }
+        else if (other.gameObject.CompareTag("Obstacle"))
+        {
+            Vector3 position = transform.position;
+
+            if (direction.x != 0f) {
+                position.x = -other.transform.position.x + direction.x;
+            } else if (direction.y != 0f) {
+                position.y = -other.transform.position.y + direction.y;
+            }
+
+            transform.position = position;
         }
     }
 
