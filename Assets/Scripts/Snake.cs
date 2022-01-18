@@ -9,8 +9,8 @@ public class Snake : MonoBehaviour
     public Transform segmentPrefab;
     public Vector2 direction = Vector2.right;
     public int initialSize = 4;
-    public float speed = 20.0f;
-    public float speedMultiplier = 1.0f;
+    public float speed = 20f;
+    public float speedMultiplier = 1f;
 
     private void Start()
     {
@@ -67,7 +67,7 @@ public class Snake : MonoBehaviour
 
             transform.position = new Vector2(x, y);
 
-            yield return new WaitForSeconds(1.0f / (this.speed * this.speedMultiplier));
+            yield return new WaitForSeconds(1f / (this.speed * this.speedMultiplier));
         }
     }
 
