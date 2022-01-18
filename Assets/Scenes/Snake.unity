@@ -469,7 +469,7 @@ MonoBehaviour:
     type: 3}
   direction: {x: 1, y: 0}
   initialSize: 4
-  speed: 30
+  speed: 20
   speedMultiplier: 1
 --- !u!50 &1161375265
 Rigidbody2D:

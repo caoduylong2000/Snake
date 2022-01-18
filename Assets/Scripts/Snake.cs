@@ -9,7 +9,7 @@ public class Snake : MonoBehaviour
     public Transform segmentPrefab;
     public Vector2 direction = Vector2.right;
     public int initialSize = 4;
-    public float speed = 30.0f;
+    public float speed = 20.0f;
     public float speedMultiplier = 1.0f;
 
     private void Start()
