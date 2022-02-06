@@ -80,6 +80,18 @@ public class Snake : MonoBehaviour
         }
     }
 
+    public bool Occupies(float x, float y)
+    {
+        foreach (Transform segment in segments)
+        {
+            if (segment.position.x == x && segment.position.y == y) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Food")) {

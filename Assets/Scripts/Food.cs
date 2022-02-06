@@ -4,6 +4,13 @@ public class Food : MonoBehaviour
 {
     public Collider2D gridArea;
 
+    private Snake snake;
+
+    private void Awake()
+    {
+        snake = FindObjectOfType<Snake>();
+    }
+
     private void Start()
     {
         RandomizePosition();
@@ -21,6 +28,23 @@ public class Food : MonoBehaviour
         x = Mathf.Round(x);
         y = Mathf.Round(y);
 
+        // Prevent food from spawning on the snake
+        while (snake.Occupies(x, y))
+        {
+            x++;
+
+            if (x > bounds.max.x)
+            {
+                x = bounds.min.x;
+                y++;
+
+                if (y > bounds.max.y) {
+                    y = bounds.min.y;
+                }
+            }
+        }
+
+        // Assign the final position
         transform.position = new Vector2(x, y);
     }
 
